@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeetAction AI | Agentic Meeting-to-Action Pipeline</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Phosphor Icons for premium aesthetic -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="logo">
+                <i class="ph-fill ph-magic-wand"></i>
+                <span>MeetAction <strong>AI</strong></span>
+            </div>
+            <div class="status-badge">
+                <span class="pulse-dot"></span> Agent Ready
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <div class="input-section glass-panel">
+                <div class="panel-header">
+                    <h2><i class="ph ph-file-text"></i> Raw Transcript</h2>
+                    <button id="load-sample-btn" class="btn-secondary">Load Sample</button>
+                </div>
+                <textarea id="transcript-input" placeholder="Paste your messy meeting transcript here..."></textarea>
+                <div class="controls">
+                    <button id="process-btn" class="btn-primary">
+                        <i class="ph ph-sparkle"></i> Synthesize & Automate
+                    </button>
+                </div>
+            </div>
+
+            <div class="output-section glass-panel">
+                <div class="panel-header">
+                    <h2><i class="ph ph-brain"></i> Agent Output</h2>
+                </div>
+                
+                <div id="loading-state" class="hidden">
+                    <div class="loader"></div>
+                    <p id="agent-status-text">Agent is processing...</p>
+                </div>
+
+                <div id="results-state" class="hidden">
+                    <div class="result-group">
+                        <h3><i class="ph ph-check-circle text-success"></i> Key Decisions</h3>
+                        <ul id="decisions-list" class="styled-list"></ul>
+                    </div>
+
+                    <div class="result-group escalation-zone hidden" id="escalation-zone">
+                        <h3><i class="ph ph-warning-circle text-warning"></i> Human Review Required (Escalated)</h3>
+                        <p class="helper-text">The agent detected action items but lacked context to assign owners or deadlines. Please complete them before exporting.</p>
+                        <div id="escalated-list" class="escalated-items"></div>
+                    </div>
+
+                    <div class="result-group">
+                        <h3><i class="ph ph-lightning text-primary"></i> Action Items</h3>
+                        <div id="action-items-list" class="action-grid"></div>
+                    </div>
+
+                    <div class="result-group">
+                        <h3><i class="ph ph-question text-info"></i> Open Questions</h3>
+                        <ul id="questions-list" class="styled-list"></ul>
+                    </div>
+
+                    <div class="actions-footer">
+                        <button class="btn-secondary" onclick="alert('Exported to Slack!')"><i class="ph ph-slack-logo"></i> Send to Slack</button>
+                        <button class="btn-secondary" onclick="alert('Exported to Team Email list!')"><i class="ph ph-envelope"></i> Email Team</button>
+                    </div>
+                </div>
+                
+                <div id="empty-state" class="empty-state">
+                    <i class="ph ph-robot"></i>
+                    <p>Agent is awaiting input. Paste a transcript to begin autonomous extraction.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
