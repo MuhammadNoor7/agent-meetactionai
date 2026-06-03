@@ -2,6 +2,8 @@
 
 **Live Demo:** [https://meetaction-ai.netlify.app](https://meetaction-ai.netlify.app)
 
+![MeetAction AI Agent](deployment.jpg)
+
 MeetAction AI is an agentic workflow automation tool designed to solve a universally dreaded problem: post-meeting synthesis. It takes messy, unstructured meeting transcripts and autonomously extracts actionable data, while knowing exactly when to escalate to a human.
 
 ## 🎯 The Problem
